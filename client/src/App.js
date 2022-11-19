@@ -157,8 +157,13 @@ function App() {
     startConnect();
     return (
       <div className="App">
-        <div className="container">
-          <div id="note">
+        {/* <h3>Welcome ! {name}</h3> */}
+        <div id="topBar">
+
+
+        </div>
+        <div className="container2">
+          <div>
             <SelfInformation
               genPrimeNumber={genPrimeNumber}
               primeNumberP={primeNumberP}
@@ -169,21 +174,15 @@ function App() {
               privateD={privateD}
               certificate={certificate}
             />
-            <br />
-            <MsgEncrypt
-              privateD={privateD}
-              bigN={bigN}
-              sha256={sha256}
-              certificate={certificate}
-              encrypt={encrypt}
+          </div>
+          <div className="divBox">
+            <ChatRoom
+              name={name}
+              socket={socket}
+              room={room}
+              setRoom={setRoom}
             />
           </div>
-          <ChatRoom
-            name={name}
-            socket={socket}
-            room={room}
-            setRoom={setRoom}
-          />
           <div>
             <CertRelated
               name={name}
@@ -194,7 +193,19 @@ function App() {
               setCertificate={setCertificate}
               setVefifyResult={setVefifyResult}
             />
-            <br />
+          </div>
+        </div>
+        <div className="container">
+          <div id="note">
+            <MsgEncrypt
+              privateD={privateD}
+              bigN={bigN}
+              sha256={sha256}
+              certificate={certificate}
+              encrypt={encrypt}
+            />
+          </div>
+          <div>
             <MsgDecrypt
               socket={socket}
               decrypt={decrypt}

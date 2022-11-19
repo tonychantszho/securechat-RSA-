@@ -48,8 +48,8 @@ const ChatRoom = ({ socket, decrypt, sha256,  bigN, privateD, vefifyResult}) => 
     }
 
     return (
-        <div className='divBox'>
-            <p><b>message decryption</b></p>
+        <div className='divBox2'>
+            <p><b>Message Decryption</b></p>
             <table id="noteTable">
                 <tr>
                     <td>
@@ -66,13 +66,13 @@ const ChatRoom = ({ socket, decrypt, sha256,  bigN, privateD, vefifyResult}) => 
                     <button onClick={decryptMessage}>decrypt</button>
                 </tr>
             </table>
-            <div><b>plain Text</b></div>
+            <div><b>plain text</b></div>
             <div className="cert">{plainText}</div>
             <br />
             <div><b>decrypted digital signature</b></div>
             <div className="cert">{vDigitalSignature}</div>
             <br />
-            <div><b>hash plain Text</b></div>
+            <div><b>hash plain text</b></div>
             <div className="cert">{hashPlainText}</div>
             <div>{confirmedResult}</div>
         </div>

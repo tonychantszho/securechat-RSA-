@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const ChatRoom = ({socket, name, room, setRoom}) => {
+const ChatRoom = ({ socket, name, room, setRoom }) => {
     const [message, setMessage] = useState("");
     const [messageReceived, setMessageReceived] = useState([{ name: "system", message: "hello" }]);
     let init = false;
@@ -29,8 +29,7 @@ const ChatRoom = ({socket, name, room, setRoom}) => {
         socket.emit("send_message", { message, room: room, name: name });
     };
     return (
-        <div>
-            <h3>Welcome ! {name}</h3>
+        <div className='divBox'>
             <label>Chat Room:</label>
             <select
                 onChange={(event) => {
@@ -52,15 +51,25 @@ const ChatRoom = ({socket, name, room, setRoom}) => {
                     }
                 })}
             </div>
-            <input
-                id="inputMessage1"
-                placeholder='Message...'
-                onChange={(event) => {
-                    setMessage(event.target.value);
-                }}
-                style={{ width: "100%" }}
-            />
-            <button onClick={sendMessage}>Send Message</button>
+            <table id="noteTable">
+                <tbody>
+                    <tr>
+                        <td>
+                            <input
+                                id="inputMessage1"
+                                placeholder='Message...'
+                                onChange={(event) => {
+                                    setMessage(event.target.value);
+                                }}
+                                style={{ width: "100%" }}
+                            />
+                        </td>
+                        <td>
+                            <button onClick={sendMessage}>Send Message</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     );
 }

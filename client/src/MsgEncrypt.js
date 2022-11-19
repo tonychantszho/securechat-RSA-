@@ -54,8 +54,8 @@ const MsgEncrypt = ({ privateD, bigN, sha256, certificate, encrypt }) => {
         setEmbeddedMessage(embedded);
     }
     return (
-        <div className='divBox'>
-            <p><b>message enryption</b></p>
+        <div className='divBox2'>
+            <p><b>Message Enryption</b></p>
             <table id="noteTable">
                 <tr>
                     <td><input
@@ -84,13 +84,13 @@ const MsgEncrypt = ({ privateD, bigN, sha256, certificate, encrypt }) => {
             <div><b>hash</b></div>
             <div className="cert">{hashValue}</div>
             <br />
-            <div><b>Digital Signature</b></div>
+            <div><b>digital signature</b></div>
             <div className="cert">{digitalSignature}</div>
             <br />
-            <div><b>cipherText</b></div>
+            <div><b>ciphertext</b></div>
             <div className="cert">{cipherText}</div>
             <br />
-            <div><b>message for send</b></div>
+            <div><b>message for sending</b></div>
             <div className="cert">{embeddedMessage}</div>
         </div>
     );

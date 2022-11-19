@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const ChatRoom = ({ name, relativeE, bigN, vefifyResult, socket,setVefifyResult,setCertificate }) => {
+const ChatRoom = ({ name, relativeE, bigN, vefifyResult, socket, setVefifyResult, setCertificate }) => {
     const [vCertificate, setVCertificate] = useState("");
     let init = false;
     useEffect(() => {
@@ -35,10 +35,12 @@ const ChatRoom = ({ name, relativeE, bigN, vefifyResult, socket,setVefifyResult,
         <div className='divBox'>
             <h3>Certificate Authority</h3>
             <table id="noteTable">
-                <tr>
-                    <td><b>generate certificate</b></td>
-                    <td><button onClick={generateCertificate}>generate</button></td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td><b>generate certificate</b></td>
+                        <td><button onClick={generateCertificate}>generate</button></td>
+                    </tr>
+                </tbody>
             </table>
             <p><b>verify certificate</b></p>
             <table id="noteTable">
