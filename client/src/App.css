@@ -1,0 +1,128 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.container {
+  display: flex;
+}
+
+.container>div {
+  /* flex: 1; */
+  margin: 3px;
+  padding: 3px;
+  height: 100%;
+  /* border: solid 1px; */
+}
+
+.container>div:nth-child(1) {
+  /* background-color: red; */
+  width: 35%;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.container>div:nth-child(2) {
+  border: solid 1px;
+  text-align: left;
+  width: 40%;
+  padding-bottom: 20px;
+  /* background-color: blue; */
+}
+
+.container>div:nth-child(3) {
+  width: 25%;
+  /* background-color: green; */
+}
+
+#chatbox {
+  overflow-y: auto;
+  border: solid 1px;
+  height: 400px;
+  margin: 10px;
+}
+
+#noteTable {
+  width: 100%;
+}
+
+.cert {
+  font-size: 3px;
+  padding: 3px;
+  text-align: left;
+  word-break: normal;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  overflow-y: auto;
+  height: auto;
+  max-height: 28px;
+  width: 95%;
+}
+
+.my_message {
+  border: solid 1px;
+  margin-left: auto;
+  border-radius: 10px;
+  margin-right: 10px;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: max-content;
+  word-break: break-all;
+  max-width: 200px;
+}
+
+.received_message {
+  text-align: left;
+  border: solid 1px;
+  border-radius: 10px;
+  width: max-content;
+  max-width: 200px;
+  word-break: break-all;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  padding: 5px;
+
+}
+
+.divBox{
+  border: solid 1px;
+}
