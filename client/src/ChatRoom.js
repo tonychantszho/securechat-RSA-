@@ -29,7 +29,7 @@ const ChatRoom = ({socket, name, room, setRoom}) => {
         socket.emit("send_message", { message, room: room, name: name });
     };
     return (
-        <div id="chatRoom">
+        <div>
             <h3>Welcome ! {name}</h3>
             <label>Chat Room:</label>
             <select

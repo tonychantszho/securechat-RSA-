@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 .App {
-  text-align: center;
+  text-align: left;
+  background-color: #eceaea;
 }
 
 .App-logo {
@@ -11,6 +14,12 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+body {
+
+  font-family: 'Poppins', sans-serif;
+
 }
 
 .App-header {
@@ -123,6 +132,10 @@
 
 }
 
-.divBox{
+.divBox {
   border: solid 1px;
+  border-radius: 15px;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 5px 6px #888888;
 }
