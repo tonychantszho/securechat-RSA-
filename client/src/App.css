@@ -42,31 +42,31 @@ body {
 .container>div>div {
   margin: 10px;
   padding: 3px;
-  border-radius: 15px;
+  border-radius: 20px;
   background-color: white;
   padding: 10px;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 .container>div:nth-child(1) {
-  width: 30%;
+  width: 32%;
   overflow: hidden;
   padding-bottom: 10px;
 }
 
 .container>div:nth-child(1)>div:nth-child(1) {
-  height: 270px;
+  height: 245px;
 }
 .container>div:nth-child(1)>div:nth-child(2) {
-  height: 190px;
+  height: 210px;
 }
 
 .container>div:nth-child(2) {
-  width: 43%;
+  width: 41%;
 }
 
 .container>div:nth-child(2)>div:nth-child(1) {
-  height: 490px;
+  height: 485px;
 }
 
 .container>div:nth-child(3) {
@@ -77,7 +77,7 @@ body {
 }
 
 .container>div:nth-child(3)>div:nth-child(1) {
-  height: 200px;
+  height: 195px;
 }
 
 .container>div:nth-child(3)>div:nth-child(2) {
@@ -92,10 +92,6 @@ body {
   margin: 0px 10px;
 }
 
-#noteTable {
-  width: 100%;
-}
-
 .cert {
   font-size: 3px;
   padding: 3px;
@@ -104,7 +100,8 @@ body {
   overflow-wrap: break-word;
   overflow: hidden;
   overflow-y: auto;
-  height: auto;
+  vertical-align:middle;
+  height: 36px;
   max-height: 36px;
   width: 95%;
 }
@@ -157,3 +154,19 @@ body {
 /* .dataTable td{
   border: solid 1px;
 }  */
+
+.dataTable1{
+  width: 100%;
+  table-layout: fixed;
+}
+
+.dataTable1 td{
+  /* border: solid 1px; */
+  padding-bottom: 8px;
+  text-align: left;
+}
+
+.overCell{
+  word-break: break-all;
+  font-size: 10px;
+}

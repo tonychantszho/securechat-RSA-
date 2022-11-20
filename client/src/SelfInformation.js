@@ -21,38 +21,45 @@ const SelfInformation = ({
     return (
         <div>
             <div className='ComponentTitle'>Key Geneeration</div>
-            <div>
-                <b>random pick p and q:</b>
-                <button onClick={genPrimeNumber}>generate</button>
-            </div>
-            <table id="noteTable">
-                <tr>
-                    <td>p</td>
-                    <td>{primeNumberP}</td>
-                    <td>q</td>
-                    <td>{primeNumberQ}</td>
-                </tr>
-                <tr>
-                    <td>N</td>
-                    <td>{bigN} </td>
-                    <td>φ(N)</td>
-                    <td>{faiN} </td>
-                </tr>
-                <tr>
-                    <td>e</td>
-                    <td>{relativeE} </td>
-                    <td>d</td>
-                    <td>{privateD} </td>
-                </tr>
+            <table className="dataTable1">
+                <tbody>
+                    <tr>
+                        <td colspan="4"><b>random pick p and q:</b></td>
+                        <td colspan="2" style={{ textAlign: "center" }}><button onClick={genPrimeNumber}>generate</button></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td colspan="6" style={{ whiteSpace: "pre",  wordBreak: "break-all"}}>
+                            <b>p=</b>{primeNumberP}   <b>q=</b>{primeNumberQ}   <b>N=</b>{bigN}   <b>φ(N)=</b>{faiN}   <b>e=</b>{relativeE}   <b>d=</b>{privateD} 
+                            </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td colspan="3"><b>public key:</b> &#123;{relativeE},{bigN}&#125;</td>
+                        <td colspan="3"><b>private key:</b> &#123;{privateD},{bigN}&#125;</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td colspan="6"><hr/></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td colspan="3"><b>one-time session key:</b></td>
+                        <td>{sessionKey}</td>
+                        <td colspan="2" style={{ textAlign: "center" }}><button onClick={genSessionKey}>generate</button></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td colspan="2" ><b>certificate:</b></td>
+                        <td colspan="4" className="overCell">{certificate}</td>
+                    </tr>
+                </tbody>
             </table>
-            <div><b>public key:</b> &#123;{relativeE},{bigN}&#125;, <b>private key:</b> &#123;{privateD},{bigN}&#125;</div>
-            <div><b>Certificate</b></div>
-            <div class="cert">{certificate}</div>
-            <div>
-                <b>one-time session key:</b>
-                <button onClick={genSessionKey}>generate</button>
-            </div>
-            <div>{sessionKey}</div>
         </div>
     );
 }

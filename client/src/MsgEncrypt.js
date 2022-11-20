@@ -74,6 +74,7 @@ const MsgEncrypt = ({
         let temp = cipherText.join("");
         let temp2 = digitalSignature.join("");
         let temp3 = certificate.join("");
+        console.log("cert = "+ temp3, "state = " + certificate);
         let embedded = temp + "," + temp2 + "," + temp3;
         setEmbeddedMessage(embedded);
     }

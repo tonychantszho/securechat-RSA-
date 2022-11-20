@@ -91,7 +91,8 @@ const ChatRoom = ({
                 </tbody>
             </table>
             <div><b>message for sending</b></div>
-            <div className="cert">{embeddedMessage} <button onClick={() => {setEncryptFunc("encrypt");}}>encrypt</button></div>
+            <div className="cert">{embeddedMessage}</div>
+            <button onClick={() => {setEncryptFunc("encrypt");}}>encrypt</button>
         </div>
     );
 }

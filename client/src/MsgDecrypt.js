@@ -34,6 +34,7 @@ const ChatRoom = ({ socket, decrypt, sha256,  bigN, privateD, vefifyResult}) => 
 
     const varifyCertificate2 = () => {
         let receivedComponet = tempCipherText.split(",");
+        console.log(receivedComponet[2]);
         socket.emit("varify", receivedComponet[2]);
     }
 
@@ -44,13 +45,13 @@ const ChatRoom = ({ socket, decrypt, sha256,  bigN, privateD, vefifyResult}) => 
         let padPlainText = decrypt(receivedComponet[0], privateD, bigN);
         const regex = /02\d+00/g;
         const plainTextWithKey = padPlainText.replace(regex, "");
-        const plainText = plainTextWithKey.split("#%#");
+        let plainText = plainTextWithKey.split("#%#");
         if(plainText.length < 2){
             plainText = ["213",plainText];
         }
         let hash = sha256.hmac(plainText[1],plainText[0]);
         setHashPlainText(hash);
-        setPlainText(plainText[0]);
+        setPlainText(plainText);
         varifySignature(receivedComponet[1]);
     }
 
@@ -75,10 +76,8 @@ const ChatRoom = ({ socket, decrypt, sha256,  bigN, privateD, vefifyResult}) => 
             </table>
             <div><b>plain text</b></div>
             <div className="cert">{plainText}</div>
-            <br />
             <div><b>decrypted digital signature</b></div>
             <div className="cert">{vDigitalSignature}</div>
-            <br />
             <div><b>hash plain text</b></div>
             <div className="cert">{hashPlainText}</div>
             <div>{confirmedResult}</div>
