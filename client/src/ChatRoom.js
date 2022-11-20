@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 const ChatRoom = ({ socket, name, room, setRoom }) => {
     const [message, setMessage] = useState("");
     const [messageReceived, setMessageReceived] = useState([{ name: "system", message: "hello" }]);
+    const chatBottomRef = useRef();
+    const chatBox = useRef([]);
     let init = false;
+
     useEffect(() => {
         if (!init) {
             socket.on("message_record", (data) => {
@@ -16,6 +19,10 @@ const ChatRoom = ({ socket, name, room, setRoom }) => {
             init = true;
         }
     }, [messageReceived, room]);
+
+    useEffect(() => {
+        chatBottomRef.current?.scrollIntoView({behavior: "smooth", block: "nearest"});
+      }, [messageReceived]);
 
     const joinRoom = (selected) => {
         console.log(selected);
@@ -50,6 +57,7 @@ const ChatRoom = ({ socket, name, room, setRoom }) => {
                         return <div key={i} className="my_message"><b>{data.name}</b><br />{data.message}</div>;
                     }
                 })}
+            <div ref={chatBottomRef} />
             </div>
             <table id="noteTable">
                 <tbody>

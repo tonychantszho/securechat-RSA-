@@ -21,8 +21,18 @@ const CertAuthority = (props) => {
         let decryptedCert = props.decrypt(data, props.relativeE, props.bigN);
         let cert = decryptedCert.split(":");
         if (cert.length <= 1) {
+          console.log(cert);
           cert = ["failed", ""];
+        } else {
+          let tempCert = cert[1].split(",");
+          console.log("tempCert = " + tempCert);
+          console.log(cert);
+          if (parseInt(tempCert[0]) || parseInt(tempCert[1])) {
+            cert = ["failed", ""];
+          }
         }
+        console.log(cert);
+        // console.log("nan1 = " + isNaN(tempCert[0] + " nan2 = " + isNaN(tempCert[1])));
         socket.emit("varify_result", { cert, socketId });
       });
       init = true;
@@ -39,41 +49,41 @@ const CertAuthority = (props) => {
       <h1>Certificate Authority</h1>
       <button onClick={props.genPrimeNumber}>generate</button>
       <table id="caStyle">
-      <tbody>
-        <tr>
-          <td>p</td>
-          <td>{props.p}</td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>p</td>
+            <td>{props.p}</td>
+          </tr>
         </tbody>
         <tbody>
-        <tr>
-          <td>q</td>
-          <td>{props.q}</td>
-        </tr>
+          <tr>
+            <td>q</td>
+            <td>{props.q}</td>
+          </tr>
         </tbody>
         <tbody>
-        <tr>
-          <td>bigN</td>
-          <td>{props.bigN}</td>
-        </tr>
+          <tr>
+            <td>bigN</td>
+            <td>{props.bigN}</td>
+          </tr>
         </tbody>
         <tbody>
-        <tr>
-          <td>e</td>
-          <td>{props.relativeE}</td>
-        </tr>
+          <tr>
+            <td>e</td>
+            <td>{props.relativeE}</td>
+          </tr>
         </tbody>
         <tbody>
-        <tr>
-          <td><b>public key</b></td>
-          <td>&#123;{props.relativeE},{props.bigN}&#125; </td>
-        </tr>
+          <tr>
+            <td><b>public key</b></td>
+            <td>&#123;{props.relativeE},{props.bigN}&#125; </td>
+          </tr>
         </tbody>
         <tbody>
-        <tr>
-          <td><b>private key</b></td>
-          <td>&#123;{props.privateD},{props.bigN}&#125;</td>
-        </tr>
+          <tr>
+            <td><b>private key</b></td>
+            <td>&#123;{props.privateD},{props.bigN}&#125;</td>
+          </tr>
         </tbody>
       </table>
     </div>
