@@ -21,18 +21,19 @@ const CertAuthority = (props) => {
         let decryptedCert = props.decrypt(data, props.relativeE, props.bigN);
         let cert = decryptedCert.split(":");
         if (cert.length <= 1) {
+
           console.log(cert);
           cert = ["failed", ""];
         } else {
           let tempCert = cert[1].split(",");
           console.log("tempCert = " + tempCert);
           console.log(cert);
-          if (parseInt(tempCert[0]) || parseInt(tempCert[1])) {
+          if (isNaN(tempCert[0]) || isNaN(tempCert[1])) {
             cert = ["failed", ""];
           }
+          console.log("nan1 = " + !isNaN(tempCert[0]) + " nan2 = " + !isNaN(tempCert[1]));
         }
         console.log(cert);
-        // console.log("nan1 = " + isNaN(tempCert[0] + " nan2 = " + isNaN(tempCert[1])));
         socket.emit("varify_result", { cert, socketId });
       });
       init = true;

@@ -25,6 +25,7 @@ function App() {
   const [faiN, setFaiN] = useState(0);
   const [relativeE, setRelativeE] = useState(0);
   const [privateD, setPrivateD] = useState(0);
+  const [sessionKey, setSessionKey] = useState(0);
   const [certificate, setCertificate] = useState("");
   const [vefifyResult, setVefifyResult] = useState(["", ""]);
 
@@ -162,18 +163,29 @@ function App() {
 
 
         </div>
-        <div className="container2">
-          <div>
+        <div className="container">
+          <div className='upperDiv'>
             <SelfInformation
               genPrimeNumber={genPrimeNumber}
+              setSessionKey={setSessionKey}
               primeNumberP={primeNumberP}
               primeNumberQ={primeNumberQ}
               bigN={bigN}
               faiN={faiN}
               relativeE={relativeE}
               privateD={privateD}
+              sessionKey={sessionKey}
               certificate={certificate}
             />
+            <div>
+              <MsgEncrypt
+                privateD={privateD}
+                bigN={bigN}
+                sha256={sha256}
+                certificate={certificate}
+                encrypt={encrypt}
+              />
+            </div>
           </div>
           <div className="divBox">
             <ChatRoom
@@ -193,27 +205,16 @@ function App() {
               setCertificate={setCertificate}
               setVefifyResult={setVefifyResult}
             />
-          </div>
-        </div>
-        <div className="container">
-          <div id="note">
-            <MsgEncrypt
-              privateD={privateD}
-              bigN={bigN}
-              sha256={sha256}
-              certificate={certificate}
-              encrypt={encrypt}
-            />
-          </div>
-          <div>
-            <MsgDecrypt
-              socket={socket}
-              decrypt={decrypt}
-              privateD={privateD}
-              bigN={bigN}
-              sha256={sha256}
-              vefifyResult={vefifyResult}
-            />
+            <div>
+              <MsgDecrypt
+                socket={socket}
+                decrypt={decrypt}
+                privateD={privateD}
+                bigN={bigN}
+                sha256={sha256}
+                vefifyResult={vefifyResult}
+              />
+            </div>
           </div>
         </div>
       </div >

@@ -49,7 +49,7 @@ body {
 }
 #topBar{
   background-color: #474860;
-  height: 40px;
+  height: 50px;
 }
 
 #sideBar{
@@ -58,15 +58,15 @@ body {
   width: 30px;
 }
 
+
 .container {
   display: flex;
   justify-content: stretch;
 }
 
-.container>div {
-  margin: 3px;
+.container>div>div {
+  margin: 10px;
   padding: 3px;
-  max-height: 280px;
   border-radius: 15px;
   background-color: white;
   padding: 13px;
@@ -74,50 +74,32 @@ body {
 }
 
 .container>div:nth-child(1) {
-  /* background-color: red; */
-  width: 70%;
-}
-
-.container>div:nth-child(2) {
   width: 30%;
-  padding-bottom: 20px;
-}
-
-
-.container2 {
-  display: flex;
-  justify-content: stretch;
-}
-
-.container2>div {
-  margin: 3px;
-  padding: 3px;
-  max-height: 300px;
-  border-radius: 15px;
-  background-color: white;
-  padding: 13px;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-}
-
-.container2>div:nth-child(1) {
-  width: 25%;
   overflow: hidden;
   padding-bottom: 10px;
 }
+.container>div:nth-child(1)>div:nth-child(1) {
+  height: 200px;
+}
 
-.container2>div:nth-child(2) {
+.container>div:nth-child(2) {
+  width: 40%;
+}
+.container>div:nth-child(2)>div:nth-child(1) {
+  height: 480px;
+}
+
+.container>div:nth-child(3) {
   text-align: left;
-  width: 48%;
+  width: 30%;
   padding-bottom: 10px;
   /* height: 300px; */
 }
 
-.container2>div:nth-child(3) {
-  text-align: left;
-  width: 22%;
-  padding-bottom: 10px;
-  /* height: 300px; */
+#upperDiv{
+  height: 480px;
 }
+
 
 #chatbox {
   overflow-y: auto;
@@ -139,7 +121,7 @@ body {
   overflow: hidden;
   overflow-y: auto;
   height: auto;
-  max-height: 28px;
+  max-height: 40px;
   width: 95%;
 }
 

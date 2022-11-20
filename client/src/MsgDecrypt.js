@@ -24,6 +24,9 @@ const ChatRoom = ({ socket, decrypt, sha256,  bigN, privateD, vefifyResult}) => 
       const varifySignature = (dSign) => {
         let publicKey = vefifyResult[1].split(",");
         console.log(publicKey);
+        if(publicKey[0] == "failed"){
+            publicKey = [1,1547];
+        }
         let temp = decrypt(dSign, publicKey[0], publicKey[1]);
         console.log(temp);
         setVDigitalSignature(temp);
