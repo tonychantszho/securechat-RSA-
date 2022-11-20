@@ -28,6 +28,10 @@ function App() {
   const [sessionKey, setSessionKey] = useState(0);
   const [certificate, setCertificate] = useState("");
   const [vefifyResult, setVefifyResult] = useState(["", ""]);
+  const [message, setMessage] = useState("");
+  const [encryptFunc, setEncryptFunc] = useState("");
+  const [embeddedMessage, setEmbeddedMessage] = useState("");
+
 
   const startConnect = () => {
     socket.connect();
@@ -159,8 +163,7 @@ function App() {
     return (
       <div className="App">
         <div id="topBar">
-          {<h1>RSA Encryption & Authentication</h1>}
-
+          RSA Encryption & Authentication
         </div>
         <div className="container">
           <div className='upperDiv'>
@@ -182,7 +185,14 @@ function App() {
                 bigN={bigN}
                 sha256={sha256}
                 certificate={certificate}
+                sessionKey={sessionKey}
                 encrypt={encrypt}
+                setMessage={setMessage}
+                message={message}
+                encryptFunc={encryptFunc}
+                setEncryptFunc={setEncryptFunc}
+                vefifyResult={vefifyResult}
+                setEmbeddedMessage={setEmbeddedMessage}
               />
             </div>
           </div>
@@ -192,6 +202,10 @@ function App() {
               socket={socket}
               room={room}
               setRoom={setRoom}
+              setMessage={setMessage}
+              message={message}
+              setEncryptFunc={setEncryptFunc}
+              embeddedMessage={embeddedMessage}
             />
           </div>
           <div>

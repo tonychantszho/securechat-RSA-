@@ -4,11 +4,6 @@
   text-align: left;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -16,7 +11,9 @@
 }
 
 body {
+  margin:0px;
   font-family: 'Poppins', sans-serif;
+  font-size: 15px;
   background-color: #dddddd;
 }
 
@@ -31,34 +28,11 @@ body {
   color: white;
 }
 
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 #topBar {
   background-color: #474860;
-  height: 40px;
+  height: 50px;
   color: white;
 }
-
-
-#sideBar {
-  background-color: #474860;
-  height: 100vh;
-  width: 30px;
-}
-
 
 .container {
   display: flex;
@@ -80,8 +54,9 @@ body {
   padding-bottom: 10px;
 }
 
-.container>div:nth-child(1)>div:nth-child(1) {
-  height: 200px;
+.container>div:nth-child(1)>div {
+  height: 230px;
+  overflow-y: scroll;
 }
 
 .container>div:nth-child(2) {
@@ -89,7 +64,7 @@ body {
 }
 
 .container>div:nth-child(2)>div:nth-child(1) {
-  height: 480px;
+  height: 490px;
 }
 
 .container>div:nth-child(3) {
@@ -99,15 +74,15 @@ body {
   /* height: 300px; */
 }
 
-#upperDiv {
-  height: 480px;
+.container>div:nth-child(3)>div {
+  height: 230px;
 }
 
 
 #chatbox {
   overflow-y: auto;
   border: solid 1px;
-  height: 250px;
+  height: 300px;
   margin: 0px 10px;
 }
 
@@ -124,7 +99,7 @@ body {
   overflow: hidden;
   overflow-y: auto;
   height: auto;
-  max-height: 40px;
+  max-height: 36px;
   width: 95%;
 }
 

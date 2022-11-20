@@ -1,10 +1,16 @@
 import { useEffect, useState, useRef } from 'react';
-
-const ChatRoom = ({ socket, name, room, setRoom }) => {
-    const [message, setMessage] = useState("");
+const ChatRoom = ({ 
+    socket,
+    name, 
+    room, 
+    setRoom,
+    message,
+    setMessage,
+    setEncryptFunc,
+    embeddedMessage 
+}) => {
     const [messageReceived, setMessageReceived] = useState([{ name: "system", message: "hello" }]);
     const chatBottomRef = useRef();
-    const chatBox = useRef([]);
     let init = false;
 
     useEffect(() => {
@@ -77,7 +83,15 @@ const ChatRoom = ({ socket, name, room, setRoom }) => {
                         </td>
                     </tr>
                 </tbody>
+                <tbody>
+                    <tr>
+                        <td><button onClick={() => {setEncryptFunc("Sign");}}>Sign</button></td>
+                        <td><button onClick={() => {setEncryptFunc("encrypt");}}>encrypt</button></td>
+                    </tr>
+                </tbody>
             </table>
+            <div><b>message for sending</b></div>
+            <div className="cert">{embeddedMessage} <button onClick={() => {setEncryptFunc("encrypt");}}>encrypt</button></div>
         </div>
     );
 }

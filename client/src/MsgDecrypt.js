@@ -43,10 +43,14 @@ const ChatRoom = ({ socket, decrypt, sha256,  bigN, privateD, vefifyResult}) => 
         console.log(receivedComponet);
         let padPlainText = decrypt(receivedComponet[0], privateD, bigN);
         const regex = /02\d+00/g;
-        const plainText = padPlainText.replace(regex, "");
-        let hash = sha256(plainText);
+        const plainTextWithKey = padPlainText.replace(regex, "");
+        const plainText = plainTextWithKey.split("#%#");
+        if(plainText.length < 2){
+            plainText = ["213",plainText];
+        }
+        let hash = sha256.hmac(plainText[1],plainText[0]);
         setHashPlainText(hash);
-        setPlainText(plainText);
+        setPlainText(plainText[0]);
         varifySignature(receivedComponet[1]);
     }
 
