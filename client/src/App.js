@@ -158,9 +158,8 @@ function App() {
     startConnect();
     return (
       <div className="App">
-        {/* <h3>Welcome ! {name}</h3> */}
         <div id="topBar">
-
+          {<h1>RSA Encryption & Authentication</h1>}
 
         </div>
         <div className="container">
