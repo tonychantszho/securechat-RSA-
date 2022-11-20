@@ -41,7 +41,6 @@ const MsgEncrypt = ({
     }
 
     const encryptMessage = () => {
-        document.getElementById("inputMessage").value = "";
         let block = 0;
         let splitBlock = [];
         let result = "";
@@ -80,13 +79,11 @@ const MsgEncrypt = ({
     }
     return (
         <div className='divBox2'>
-            <p><b>Message Enryption</b></p>
+            <div className='ComponentTitle'>Message Enryption</div>
             <div><b>hash</b></div>
             <div className="cert">{hashValue}</div>
-            <br />
             <div><b>digital signature</b></div>
             <div className="cert">{digitalSignature}</div>
-            <br />
             <div><b>ciphertext</b></div>
             <div className="cert">{cipherText}</div>
         </div>

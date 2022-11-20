@@ -32,40 +32,49 @@ const ChatRoom = ({ name, relativeE, bigN, vefifyResult, socket, setVefifyResult
     }
 
     return (
-        <div className='divBox'>
-            <h3>Certificate Authority</h3>
-            <table id="noteTable">
+        <div>
+            <div className='ComponentTitle'>Certificate Authority</div>
+            <table className="dataTable">
                 <tbody>
-                    <tr>
+                    <tr >
                         <td><b>generate certificate</b></td>
                         <td><button onClick={generateCertificate}>generate</button></td>
                     </tr>
                 </tbody>
-            </table>
-            <p><b>verify certificate</b></p>
-            <table id="noteTable">
-                <tr>
-                    <td>
-                        <input
-                            placeholder='certificate...'
-                            onChange={(event) => {
-                                setVCertificate(event.target.value);
-                            }}
-                            style={{ width: '100%' }}
-                        />
-                    </td>
-                    <button onClick={varifyCertificate}>verify</button>
-                </tr>
-            </table>
-            <table id="noteTable">
-                <tr>
-                    <td><b>user name</b></td>
-                    <td>{vefifyResult[0]}</td>
-                </tr>
-                <tr>
-                    <td><b>public key</b></td>
-                    <td>{vefifyResult[1]}</td>
-                </tr>
+                <tbody><tr><td colspan="2" style={{ height: "5px" }}></td></tr></tbody>
+                <tbody>
+                    <tr>
+                        <td colspan="2" style={{ textAlign: "center" }}><b>verify certificate</b></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input
+                                placeholder='certificate...'
+                                onChange={(event) => {
+                                    setVCertificate(event.target.value);
+                                }}
+                                style={{ width: '100%', boxSizing: "border-box" }}
+                            />
+                        </td>
+                        <td><button onClick={varifyCertificate}>verify</button></td>
+                    </tr>
+                </tbody>
+                <div style={{ fontSize: "17px" }}>
+                    <tbody>
+                        <tr>
+                            <td><b>user name: </b></td>
+                            <td>{vefifyResult[0]}</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td ><b>public key: </b></td>
+                            <td>{vefifyResult[1]}</td>
+                        </tr>
+                    </tbody>
+                </div>
             </table>
         </div>
     );

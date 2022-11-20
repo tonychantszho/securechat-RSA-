@@ -166,7 +166,7 @@ function App() {
           RSA Encryption & Authentication
         </div>
         <div className="container">
-          <div className='upperDiv'>
+          <div>
             <SelfInformation
               genPrimeNumber={genPrimeNumber}
               setSessionKey={setSessionKey}

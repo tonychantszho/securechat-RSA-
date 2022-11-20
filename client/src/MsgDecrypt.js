@@ -56,7 +56,7 @@ const ChatRoom = ({ socket, decrypt, sha256,  bigN, privateD, vefifyResult}) => 
 
     return (
         <div className='divBox2'>
-            <p><b>Message Decryption</b></p>
+            <div className='ComponentTitle'>Message Decryption</div>
             <table id="noteTable">
                 <tr>
                     <td>

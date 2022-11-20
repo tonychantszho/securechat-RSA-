@@ -20,6 +20,7 @@ const SelfInformation = ({
     }
     return (
         <div>
+            <div className='ComponentTitle'>Key Geneeration</div>
             <div>
                 <b>random pick p and q:</b>
                 <button onClick={genPrimeNumber}>generate</button>
