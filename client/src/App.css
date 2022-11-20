@@ -16,10 +16,8 @@
 }
 
 body {
-
   font-family: 'Poppins', sans-serif;
   background-color: #dddddd;
-
 }
 
 .App-header {
@@ -50,7 +48,9 @@ body {
 #topBar{
   background-color: #474860;
   height: 40px;
+  color: white;
 }
+
 
 #sideBar{
   background-color: #474860;
@@ -65,11 +65,10 @@ body {
 
 .container>div {
   margin: 3px;
-  padding: 3px;
   max-height: 280px;
   border-radius: 15px;
   background-color: white;
-  padding: 13px;
+  padding: 10px;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
