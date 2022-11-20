@@ -55,10 +55,10 @@ body {
 }
 
 .container>div:nth-child(1)>div:nth-child(1) {
-  height: 245px;
+  height: 240px;
 }
 .container>div:nth-child(1)>div:nth-child(2) {
-  height: 210px;
+  height: 215px;
 }
 
 .container>div:nth-child(2) {
@@ -77,11 +77,11 @@ body {
 }
 
 .container>div:nth-child(3)>div:nth-child(1) {
-  height: 195px;
+  height: 175px;
 }
 
 .container>div:nth-child(3)>div:nth-child(2) {
-  height: 260px;
+  height: 280px;
 }
 
 
@@ -166,7 +166,22 @@ body {
   text-align: left;
 }
 
+.dataTable2{
+  width: 100%;
+  text-align: left;
+  table-layout: fixed;
+}
+
 .overCell{
   word-break: break-all;
   font-size: 10px;
+  min-height: 36px;
+  max-height: 36px;
+  overflow-y: auto;
 }
+
+.dataTable2 td{
+  /* border: solid 1px; */
+  text-align: left;
+}
+

@@ -30,7 +30,7 @@ const SelfInformation = ({
                 </tbody>
                 <tbody>
                     <tr>
-                        <td colspan="6" style={{ whiteSpace: "pre",  wordBreak: "break-all"}}>
+                        <td colspan="6" style={{ whiteSpace: "pre",  wordBreak: "break-all" }}>
                             <b>p=</b>{primeNumberP}   <b>q=</b>{primeNumberQ}   <b>N=</b>{bigN}   <b>φ(N)=</b>{faiN}   <b>e=</b>{relativeE}   <b>d=</b>{privateD} 
                             </td>
                     </tr>

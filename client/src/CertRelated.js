@@ -41,7 +41,6 @@ const ChatRoom = ({ name, relativeE, bigN, vefifyResult, socket, setVefifyResult
                         <td><button onClick={generateCertificate}>generate</button></td>
                     </tr>
                 </tbody>
-                <tbody><tr><td colspan="2" style={{ height: "5px" }}></td></tr></tbody>
                 <tbody>
                     <tr>
                         <td colspan="2" style={{ textAlign: "center" }}><b>verify certificate</b></td>
@@ -61,7 +60,7 @@ const ChatRoom = ({ name, relativeE, bigN, vefifyResult, socket, setVefifyResult
                         <td><button onClick={varifyCertificate}>verify</button></td>
                     </tr>
                 </tbody>
-                <div style={{ fontSize: "17px" }}>
+                <div style={{ fontSize: "15px" }}>
                     <tbody>
                         <tr>
                             <td><b>user name: </b></td>

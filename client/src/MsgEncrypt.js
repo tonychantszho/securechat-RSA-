@@ -1,4 +1,4 @@
-import { useEffect,useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const MsgEncrypt = ({
     privateD,
@@ -18,12 +18,12 @@ const MsgEncrypt = ({
     const [cipherText, setCipherText] = useState("");
 
     useEffect(() => {
-        if(encryptFunc !=""){
+        if (encryptFunc != "") {
             console.log(encryptFunc);
-            if(encryptFunc == "Sign"){
+            if (encryptFunc == "Sign") {
                 console.log("Sign");
                 hashAndSign();
-            }else if(encryptFunc == "encrypt"){
+            } else if (encryptFunc == "encrypt") {
                 console.log("encrypt");
                 encryptMessage();
             }
@@ -32,7 +32,7 @@ const MsgEncrypt = ({
     }, [encryptFunc]);
 
     const hashAndSign = () => {
-        let hash = sha256.hmac(sessionKey,message);
+        let hash = sha256.hmac(sessionKey, message);
         setHashValue(hash);
         console.log("privateD = " + privateD);
         console.log("bigN = " + bigN);
@@ -74,20 +74,36 @@ const MsgEncrypt = ({
         let temp = cipherText.join("");
         let temp2 = digitalSignature.join("");
         let temp3 = certificate.join("");
-        console.log("cert = "+ temp3, "state = " + certificate);
+        console.log("cert = " + temp3, "state = " + certificate);
         let embedded = temp + "," + temp2 + "," + temp3;
         setEmbeddedMessage(embedded);
     }
     return (
-        <div className='divBox2'>
+        <div>
             <div className='ComponentTitle'>Message Enryption</div>
-            <div><b>hash</b></div>
-            <div className="cert">{hashValue}</div>
-            <div><b>digital signature</b></div>
-            <div className="cert">{digitalSignature}</div>
-            <div><b>ciphertext</b></div>
-            <div className="cert">{cipherText}</div>
+            <table className='dataTable2'>
+                <tbody>
+                    <tr>
+                        <td style={{width: "15%"}}><b>hash</b></td>
+                        <td className='overCell'>{hashValue}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><b>digital signature</b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" ><div className='overCell'>{digitalSignature}</div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><b>ciphertext</b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" ><div className='overCell'>{cipherText}</div></td>
+                    </tr>
+                </tbody>
+            </table>
+
         </div>
+
     );
 }
 
