@@ -104,24 +104,8 @@ const ChatRoom = ({
                     <button id="sendBtn" onClick={sendMessage}><img src={sendButton} style={{ height: "20px",width:"20px" }} /></button>
                 </div>
             </div>
-            <table id="chatTable">
-                <tbody>
-                    <tr>
-                        <td>
-
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr>
-                        <td><button onClick={() => { setEncryptFunc("Sign"); }}>Sign</button></td>
-                        <td><button onClick={() => { setEncryptFunc("encrypt"); }}>encrypt</button></td>
-                    </tr>
-                </tbody>
-            </table>
-            <div><b>message for sending</b></div>
+            <div><b>Encrypt message for sending</b><button onClick={() => { setEncryptFunc("Sign"); }}>Sign</button><button onClick={() => { setEncryptFunc("encrypt"); }}>encrypt</button>
+            </div>
             <div className="cert">{embeddedMessage}</div>
             <button onClick={() => { setEncryptFunc("encrypt"); }}>encrypt</button>
         </div>

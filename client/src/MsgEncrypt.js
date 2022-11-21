@@ -88,13 +88,13 @@ const MsgEncrypt = ({
                         <td className='overCell'>{hashValue}</td>
                     </tr>
                     <tr>
-                        <td colSpan="2"><b>digital signature</b></td>
+                        <td colSpan="2"><b>Digital signature</b></td>
                     </tr>
                     <tr>
                         <td colSpan="2" ><div className='overCell'>{digitalSignature}</div></td>
                     </tr>
                     <tr>
-                        <td colSpan="2"><b>ciphertext</b></td>
+                        <td colSpan="2"><b>Ciphertext</b></td>
                     </tr>
                     <tr>
                         <td colSpan="2" ><div className='overCell'>{cipherText}</div></td>

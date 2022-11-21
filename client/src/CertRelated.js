@@ -63,13 +63,13 @@ const ChatRoom = ({ name, relativeE, bigN, vefifyResult, socket, setVefifyResult
                 <div style={{ fontSize: "15px" }}>
                     <tbody>
                         <tr>
-                            <td><b>user name: </b></td>
+                            <td><b>User name: </b></td>
                             <td>{vefifyResult[0]}</td>
                         </tr>
                     </tbody>
                     <tbody>
                         <tr>
-                            <td ><b>public key: </b></td>
+                            <td ><b>Public key: </b></td>
                             <td>{vefifyResult[1]}</td>
                         </tr>
                     </tbody>
