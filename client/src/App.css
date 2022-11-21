@@ -66,7 +66,7 @@ body {
 }
 
 .container>div:nth-child(2)>div:nth-child(1) {
-  height: 485px;
+  height: 505px;
 }
 
 .container>div:nth-child(3) {
@@ -88,8 +88,10 @@ body {
 #chatbox {
   overflow-y: auto;
   border: solid 1px;
-  height: 300px;
-  margin: 0px 10px;
+  height: 320px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 95% 320px;
 }
 
 .cert {
@@ -116,6 +118,8 @@ body {
   margin-bottom: 5px;
   width: max-content;
   word-break: break-all;
+  background-color: lightpink;
+  color: white;
   max-width: 200px;
 }
 
@@ -129,6 +133,8 @@ body {
   margin-top: 5px;
   margin-bottom: 5px;
   margin-left: 10px;
+  background-color: lightpink;
+  color: white;
   padding: 5px;
 }
 
@@ -183,5 +189,27 @@ body {
 .dataTable2 td{
   /* border: solid 1px; */
   text-align: left;
+}
+
+#chatRoomBar{
+  width: 100%;
+  height: 40px;
+  border-radius: 20px 20px 0px 0px;
+  background-color: #FFB6C1;
+  display: flex;
+}
+
+#charRoomTitle{
+  height: 40px;
+  padding-top: 5px;
+  font-size: 20px;
+  padding-left: 20px;
+  color: white;
+  font-weight: bold;
+}
+#selectRoom{
+  padding-top: 7px;
+  margin-left: auto;
+  margin-right: 30px;
 }
 

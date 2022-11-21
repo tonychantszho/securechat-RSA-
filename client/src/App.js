@@ -196,7 +196,7 @@ function App() {
               />
             </div>
           </div>
-          <div className="divBox">
+          <div>
             <ChatRoom
               name={name}
               socket={socket}
