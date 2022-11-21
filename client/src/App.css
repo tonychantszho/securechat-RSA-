@@ -264,6 +264,7 @@ button {
   font-size: 14px;
   padding: 4px 6px;
   cursor: pointer;
+  min-width: 70px;
 
 }
 
