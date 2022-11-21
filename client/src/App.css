@@ -18,8 +18,7 @@ body {
   margin: 0px;
   font-family: 'Poppins', sans-serif;
   font-size: 15px;
-  background-color: #dddddd;
-}
+  background-image: linear-gradient(to top, #bdc2e8 0%, #bdc2e8 1%, #e6dee9 100%);}
 
 /* .App-header {
   background-color: #282c34;
@@ -64,11 +63,11 @@ body {
 }
 
 .container>div:nth-child(1)>div:nth-child(1) {
-  height: 240px;
+  height: 245px;
 }
 
 .container>div:nth-child(1)>div:nth-child(2) {
-  height: 215px;
+  height: 210px;
 }
 
 .container>div:nth-child(2) {
@@ -89,11 +88,11 @@ body {
 }
 
 .container>div:nth-child(3)>div:nth-child(1) {
-  height: 175px;
+  height: 180px;
 }
 
 .container>div:nth-child(3)>div:nth-child(2) {
-  height: 280px;
+  height: 275px;
 }
 
 
@@ -119,7 +118,7 @@ body {
 
 .my_message {
   margin-left: auto;
-  border-radius: 10px;
+  border-radius: 15px 15px 0px 15px;
   margin-right: 10px;
   padding: 5px;
   margin-top: 5px;
@@ -128,11 +127,12 @@ body {
   word-break: break-all;
   background-color: #ffffff87;
   max-width: 200px;
+  min-width: 50px;
 }
 
 .received_message {
   text-align: left;
-  border-radius: 10px;
+  border-radius: 15px 15px 15px 0px;
   width: max-content;
   max-width: 200px;
   word-break: break-all;
@@ -141,6 +141,7 @@ body {
   margin-left: 10px;
   background-color: #ffffff87;
   padding: 5px;
+  min-width: 50px;
 }
 
 .ComponentTitle {
@@ -245,6 +246,7 @@ b{
   margin-left: 10px;
   height: 29px;
   width: 29px;
+  min-width: 0px;
   border-radius: 100px;
   background: transparent;
   border: none;
@@ -258,12 +260,14 @@ button {
   background-color: #b097fca6;
   border-radius: 15px;
   overflow: hidden;
+  font-weight: bold;
   color: #fff;
   border: transparent 1px solid;
   transition: all 0.2s;
   text-align: center;
   font-size: 14px;
   padding: 4px 6px;
+  min-width: 70px;
   cursor: pointer;
 
 }

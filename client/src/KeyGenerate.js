@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 const SelfInformation = ({
     genPrimeNumber,
     setSessionKey,
@@ -8,8 +9,15 @@ const SelfInformation = ({
     relativeE,
     privateD,
     sessionKey,
-    certificate
+    certificate,
+    embeddedMessage
 }) => {
+    useEffect(() => {
+        if (embeddedMessage == "") {
+            genSessionKey();
+        }
+    }, [embeddedMessage]);
+
     const genSessionKey = () => {
         let sessionKey = "";
         for (let i = 0; i < 6; i++) {
@@ -30,9 +38,9 @@ const SelfInformation = ({
                 </tbody>
                 <tbody>
                     <tr>
-                        <td colSpan="6" style={{ whiteSpace: "pre",  wordBreak: "break-all" }}>
-                            <b>p=</b>{primeNumberP}   <b>q=</b>{primeNumberQ}   <b>N=</b>{bigN}   <b>φ(N)=</b>{faiN}   <b>e=</b>{relativeE}   <b>d=</b>{privateD} 
-                            </td>
+                        <td colSpan="6" style={{ whiteSpace: "pre", wordBreak: "break-all" }}>
+                            <b>p=</b>{primeNumberP}   <b>q=</b>{primeNumberQ}   <b>N=</b>{bigN}   <b>φ(N)=</b>{faiN}   <b>e=</b>{relativeE}   <b>d=</b>{privateD}
+                        </td>
                     </tr>
                 </tbody>
                 <tbody>
@@ -43,7 +51,7 @@ const SelfInformation = ({
                 </tbody>
                 <tbody>
                     <tr>
-                        <td colSpan="6"><hr/></td>
+                        <td colSpan="6"><hr /></td>
                     </tr>
                 </tbody>
                 <tbody>

@@ -5,7 +5,7 @@ const ChatRoom = ({ socket, decrypt, sha256, bigN, privateD, vefifyResult }) => 
     const [plainText, setPlainText] = useState("");
     const [hashPlainText, setHashPlainText] = useState("");
     const [vDigitalSignature, setVDigitalSignature] = useState("");
-    const [confirmedResult, setConfirmedResult] = useState("false");
+    const [confirmedResult, setConfirmedResult] = useState("");
 
     useEffect(() => {
         if (hashPlainText != "") {
@@ -41,11 +41,11 @@ const ChatRoom = ({ socket, decrypt, sha256, bigN, privateD, vefifyResult }) => 
     const decryptMessage = () => {
         document.getElementById("inputMessage2").value = "";
         let receivedComponet = tempCipherText.split(",");
-        console.log(receivedComponet);
         let padPlainText = decrypt(receivedComponet[0], privateD, bigN);
         const regex = /02\d+00/g;
         const plainTextWithKey = padPlainText.replace(regex, "");
         let plainText = plainTextWithKey.split("#%#");
+        console.log(plainText);
         if (plainText.length < 2) {
             plainText = ["213", plainText];
         }
@@ -82,14 +82,32 @@ const ChatRoom = ({ socket, decrypt, sha256, bigN, privateD, vefifyResult }) => 
                     </tr>
                     <tr>
                         <td colSpan="3"><b>Hash using plain text</b></td>
-                        <td style={{ textAlign: "center" }}>{confirmedResult}</td>
+                        {hashPlainText&&<td className="confrimedResult"
+                            style={{
+                                maxWidth:"70px",
+                                color:"white",
+                                textAlign: "center",
+                                borderRadius: "20px",
+                                backgroundColor: confirmedResult === 'clash' ? "red" : "green"
+                            }}>
+                            {confirmedResult}
+                        </td>}
                     </tr>
                     <tr>
                         <td colSpan="4" ><div className='overCell'>{hashPlainText}</div></td>
                     </tr>
                     <tr>
                         <td colSpan="3"><b>Decrypted digital signature</b></td>
-                        <td style={{ textAlign: "center" }}>{confirmedResult}</td>
+                        {hashPlainText&&<td className="confrimedResult"
+                            style={{
+                                maxWidth:"70px",
+                                color:"white",
+                                textAlign: "center",
+                                borderRadius: "20px",
+                                backgroundColor: confirmedResult === 'clash' ? "red" : "green"
+                            }}>
+                            {confirmedResult}
+                        </td>}
                     </tr>
                     <tr>
                         <td colSpan="4" ><div className='overCell'>{vDigitalSignature}</div></td>

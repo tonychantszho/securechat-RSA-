@@ -8,7 +8,8 @@ const ChatRoom = ({
     message,
     setMessage,
     setEncryptFunc,
-    embeddedMessage
+    embeddedMessage,
+    setEmbeddedMessage
 }) => {
     const [messageReceived, setMessageReceived] = useState([{ name: "system", message: "hello" }]);
     const chatBottomRef = useRef();
@@ -33,7 +34,6 @@ const ChatRoom = ({
 
     const userColor = (name) => {
         let uppername = name.toUpperCase();
-        console.log(uppername);
         if (name.startsWith("A")) {
             return "#e64980";
         } else if (uppername.startsWith("B")) {
@@ -57,8 +57,19 @@ const ChatRoom = ({
     };
 
     const sendMessage = () => {
-        document.getElementById("inputMessage1").value = "";
-        socket.emit("send_message", { message, room: room, name: name });
+        if (message != "") {
+            document.getElementById("inputMessage1").value = "";
+            socket.emit("send_message", { message, room: room, name: name });
+            setMessage("");
+        }
+    };
+
+    const sendMessage2 = () => {
+        if (embeddedMessage != "") {
+            document.getElementById("inputMessage1").value = "";
+            socket.emit("send_message", { message: embeddedMessage, room: room, name: name });
+            setEmbeddedMessage("");
+        }
     };
     return (
         <div style={{ padding: "0px" }}>
@@ -101,18 +112,22 @@ const ChatRoom = ({
                     />
                 </div>
                 <div>
-                    <button id="sendBtn" onClick={sendMessage}><img src={sendButton} style={{ height: "20px", width: "20px" }} /></button>
+                    <button id="sendBtn" onClick={sendMessage}>
+                        <img src={sendButton} style={{ height: "20px", width: "20px" }} />
+                    </button>
                 </div>
             </div>
             <div style={{ padding: "0px 5px" }}>
                 <b>Encrypt message for sending</b>
                 <button style={{ marginLeft: '15px' }} onClick={() => { setEncryptFunc("Sign"); }}>Sign</button>
                 <button style={{ marginLeft: '15px' }} onClick={() => { setEncryptFunc("encrypt"); }}>encrypt</button>
-                <div id="sendMsg" style={{ padding:'0px' }}>
-                    <div className="overCell" >{embeddedMessage}</div>
-                    <div>
-                        <button style={{ marginTop: '5px' }} onClick={() => { setEncryptFunc("encrypt"); }}>encrypt</button>
-                    </div>
+                <div id="sendMsg" style={{ padding: '0px' }}>
+                    <div className="overCell">{embeddedMessage}</div>
+                    {embeddedMessage && <div>
+                        <button id="sendBtn" style={{ marginTop: "5px" }} onClick={sendMessage2}>
+                            <img src={sendButton} style={{ height: "20px", width: "20px" }} />
+                        </button>
+                    </div>}
                 </div>
             </div>
         </div>

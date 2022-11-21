@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 import { useState } from 'react';
 import CertAuthority from './CertAuthority';
 import ChatRoom from './ChatRoom';
-import SelfInformation from './SelfInformation';
+import KeyGenerate from './KeyGenerate';
 import MsgEncrypt from './MsgEncrypt';
 import CertRelated from './CertRelated';
 import MsgDecrypt from './MsgDecrypt';
@@ -174,7 +174,7 @@ function App() {
 
         <div className="container">
           <div>
-            <SelfInformation
+            <KeyGenerate
               genPrimeNumber={genPrimeNumber}
               setSessionKey={setSessionKey}
               primeNumberP={primeNumberP}
@@ -185,6 +185,7 @@ function App() {
               privateD={privateD}
               sessionKey={sessionKey}
               certificate={certificate}
+              embeddedMessage={embeddedMessage}
             />
 
 
@@ -215,6 +216,7 @@ function App() {
               message={message}
               setEncryptFunc={setEncryptFunc}
               embeddedMessage={embeddedMessage}
+              setEmbeddedMessage={setEmbeddedMessage}
             />
           </div>
           <div>
