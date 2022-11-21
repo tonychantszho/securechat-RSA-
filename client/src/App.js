@@ -138,7 +138,7 @@ function App() {
 
   if (checkfName == false) {
     return (
-      <div className="App">
+      <div className="certInfo">
         <h1>Enter your name</h1>
         <input type="text" onChange={(e) => setName(e.target.value)} />
         <button onClick={checkName}>Start</button>

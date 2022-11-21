@@ -46,10 +46,11 @@ const CertAuthority = (props) => {
 
   }, [props.bigN, props.relativeE]);
   return (
-    <div className="App">
+
+    <div className="certInfo">
       <h1>Certificate Authority</h1>
-      <button onClick={props.genPrimeNumber}>generate</button>
-      <table id="caStyle">
+      <button onClick={props.genPrimeNumber}>Generate</button>
+      <table>
         <tbody>
           <tr>
             <td>p</td>
