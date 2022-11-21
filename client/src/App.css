@@ -38,8 +38,9 @@ body {
   color: #d0dcff;
   font-size:30px;
   padding: 0 10px;
-  
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .container {

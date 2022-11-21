@@ -163,8 +163,15 @@ function App() {
     return (
       <div className="App">
         <div id="topBar">
-          RSA Encryption & Authentication
+          <div>
+            RSA Encryption & Authentication
+          </div>
+          <div style={{fontSize: 18}} id="topBar">
+            Welcome {name} !
+          </div>
         </div>
+
+
         <div className="container">
           <div>
             <SelfInformation
@@ -179,8 +186,6 @@ function App() {
               sessionKey={sessionKey}
               certificate={certificate}
             />
-
-
 
 
             <div>
