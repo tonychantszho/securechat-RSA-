@@ -37,13 +37,13 @@ const ChatRoom = ({ name, relativeE, bigN, vefifyResult, socket, setVefifyResult
             <table className="dataTable">
                 <tbody>
                     <tr >
-                        <td><b>generate certificate</b></td>
-                        <td><button onClick={generateCertificate}>generate</button></td>
+                        <td><b>Generate certificate</b></td>
+                        <td><button onClick={generateCertificate}>Generate</button></td>
                     </tr>
                 </tbody>
                 <tbody>
                     <tr>
-                        <td colspan="2" style={{ textAlign: "center" }}><b>verify certificate</b></td>
+                        <td colspan="2" style={{ textAlign: "center" }}><b>Verify Certificate</b></td>
                     </tr>
                 </tbody>
                 <tbody>

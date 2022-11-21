@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+
+
+
 .App {
   text-align: left;
+ 
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -17,7 +21,7 @@ body {
   background-color: #dddddd;
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -26,12 +30,16 @@ body {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 #topBar {
-  background-color: #474860;
+  background-color: #636490;
   height: 50px;
-  color: white;
+  color: #d0dcff;
+  font-size:30px;
+  padding: 0 10px;
+  
+  
 }
 
 .container {
@@ -177,6 +185,10 @@ body {
   text-align: left;
   table-layout: fixed;
 }
+/* 
+b{
+  text-transform: capitalize;
+} */
 
 .overCell{
   word-break: break-all;
@@ -213,3 +225,28 @@ body {
   margin-right: 30px;
 }
 
+
+button{
+  text-transform: capitalize;
+  display: inline-block;
+  background-color: #658bfd;
+  border-radius: 5px;
+  overflow: hidden;
+  color: #fff;
+  border: transparent 1px solid;
+  transition: all 0.2s;
+  text-align: center;
+  font-size: 14px;
+  padding: 4px 6px;
+cursor: pointer;
+  
+}
+button:hover{
+  background-color: #ffffff;
+  color: #658bfd;
+  border: #658bfd 1px solid;
+}
+
+.trueFalse{
+  color: red;
+}

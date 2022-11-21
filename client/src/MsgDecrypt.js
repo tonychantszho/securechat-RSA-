@@ -75,21 +75,22 @@ const ChatRoom = ({ socket, decrypt, sha256, bigN, privateD, vefifyResult }) => 
                         <td><button onClick={decryptMessage}>decrypt</button></td>
                     </tr>
                     <tr>
-                        <td colspan="4"><b>plain text</b></td>
+                        <td colspan="4"><b>Plain text</b></td>
                     </tr>
                     <tr>
                         <td colspan="4" ><div className='overCell'>{plainText}</div></td>
                     </tr>
                     <tr>
-                        <td colspan="3"><b>hash using plain text</b></td>
-                        <td style={{ textAlign: "center" }}>{confirmedResult}</td>
+                        <td colspan="3"><b>Hash using plain text</b></td>
+                        <td classNmae="trueFalse" style={{ textAlign: "center" }}>{confirmedResult}</td>
                     </tr>
                     <tr>
                         <td colspan="4" ><div className='overCell'>{hashPlainText}</div></td>
                     </tr>
                     <tr>
-                        <td colspan="3"><b>decrypted digital signature</b></td>
-                        <td style={{ textAlign: "center" }}>{confirmedResult}</td>
+                        <td colspan="3"><b>Decrypted digital signature</b></td>
+                        <td style={{ textAlign: "center"}}>{confirmedResult}</td>
+                        
                     </tr>
                     <tr>
                         <td colspan="4" ><div className='overCell'>{vDigitalSignature}</div></td>

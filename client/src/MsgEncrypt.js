@@ -84,17 +84,17 @@ const MsgEncrypt = ({
             <table className='dataTable2'>
                 <tbody>
                     <tr>
-                        <td style={{width: "15%"}}><b>hash</b></td>
+                        <td style={{width: "15%"}}><b>Hash</b></td>
                         <td className='overCell'>{hashValue}</td>
                     </tr>
                     <tr>
-                        <td colspan="2"><b>digital signature</b></td>
+                        <td colspan="2"><b>Digital signature</b></td>
                     </tr>
                     <tr>
                         <td colspan="2" ><div className='overCell'>{digitalSignature}</div></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><b>ciphertext</b></td>
+                        <td colspan="2"><b>Ciphertext</b></td>
                     </tr>
                     <tr>
                         <td colspan="2" ><div className='overCell'>{cipherText}</div></td>
