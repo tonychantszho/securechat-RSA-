@@ -24,39 +24,39 @@ const SelfInformation = ({
             <table className="dataTable1">
                 <tbody>
                     <tr>
-                        <td colspan="4"><b>Random pick p and q:</b></td>
-                        <td colspan="2" style={{ textAlign: "center" }}><button onClick={genPrimeNumber}>generate</button></td>
+                        <td colSpan="4"><b>random pick p and q:</b></td>
+                        <td colSpan="2" style={{ textAlign: "center" }}><button onClick={genPrimeNumber}>generate</button></td>
                     </tr>
                 </tbody>
                 <tbody>
                     <tr>
-                        <td colspan="6" style={{ whiteSpace: "pre",  wordBreak: "break-all" }}>
+                        <td colSpan="6" style={{ whiteSpace: "pre",  wordBreak: "break-all" }}>
                             <b>p=</b>{primeNumberP}   <b>q=</b>{primeNumberQ}   <b>N=</b>{bigN}   <b>φ(N)=</b>{faiN}   <b>e=</b>{relativeE}   <b>d=</b>{privateD} 
                             </td>
                     </tr>
                 </tbody>
                 <tbody>
                     <tr>
-                        <td colspan="3"><b>Public key:</b> &#123;{relativeE},{bigN}&#125;</td>
-                        <td colspan="3"><b>Private key:</b> &#123;{privateD},{bigN}&#125;</td>
+                        <td colSpan="3"><b>public key:</b> &#123;{relativeE},{bigN}&#125;</td>
+                        <td colSpan="3"><b>private key:</b> &#123;{privateD},{bigN}&#125;</td>
                     </tr>
                 </tbody>
                 <tbody>
                     <tr>
-                        <td colspan="6"><hr/></td>
+                        <td colSpan="6"><hr/></td>
                     </tr>
                 </tbody>
                 <tbody>
                     <tr>
-                        <td colspan="3"><b>One-time session key:</b></td>
+                        <td colSpan="3"><b>one-time session key:</b></td>
                         <td>{sessionKey}</td>
-                        <td colspan="2" style={{ textAlign: "center" }}><button onClick={genSessionKey}>generate</button></td>
+                        <td colSpan="2" style={{ textAlign: "center" }}><button onClick={genSessionKey}>generate</button></td>
                     </tr>
                 </tbody>
                 <tbody>
                     <tr>
-                        <td colspan="2" ><b>Certificate:</b></td>
-                        <td colspan="4" className="overCell">{certificate}</td>
+                        <td colSpan="2" ><b>certificate:</b></td>
+                        <td colSpan="4" className="overCell">{certificate}</td>
                     </tr>
                 </tbody>
             </table>

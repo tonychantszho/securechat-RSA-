@@ -43,7 +43,7 @@ const ChatRoom = ({ name, relativeE, bigN, vefifyResult, socket, setVefifyResult
                 </tbody>
                 <tbody>
                     <tr>
-                        <td colspan="2" style={{ textAlign: "center" }}><b>Verify Certificate</b></td>
+                        <td colSpan="2" style={{ textAlign: "center" }}><b>verify certificate</b></td>
                     </tr>
                 </tbody>
                 <tbody>
