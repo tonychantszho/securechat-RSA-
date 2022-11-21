@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
-
-
 .App {
   text-align: left;
 
@@ -19,6 +17,7 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 15px;
   background-color: #dddddd;
+  min-height: 100vh;
 }
 
 /* .App-header {
@@ -276,4 +275,12 @@ button:hover {
 
 .trueFalse {
   color: red;
+}
+
+.certInfo{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(50%);
 }
