@@ -61,7 +61,7 @@ const ChatRoom = ({ socket, decrypt, sha256, bigN, privateD, vefifyResult }) => 
             <table className='dataTable2'>
                 <tbody>
                     <tr>
-                        <td colspan="2">
+                        <td colSpan="2">
                             <input
                                 id="inputMessage2"
                                 placeholder='encrypted message'
@@ -75,25 +75,24 @@ const ChatRoom = ({ socket, decrypt, sha256, bigN, privateD, vefifyResult }) => 
                         <td><button onClick={decryptMessage}>decrypt</button></td>
                     </tr>
                     <tr>
-                        <td colspan="4"><b>Plain text</b></td>
+                        <td colSpan="4"><b>plain text</b></td>
                     </tr>
                     <tr>
-                        <td colspan="4" ><div className='overCell'>{plainText}</div></td>
+                        <td colSpan="4" ><div className='overCell'>{plainText}</div></td>
                     </tr>
                     <tr>
-                        <td colspan="3"><b>Hash using plain text</b></td>
-                        <td classNmae="trueFalse" style={{ textAlign: "center" }}>{confirmedResult}</td>
+                        <td colSpan="3"><b>hash using plain text</b></td>
+                        <td style={{ textAlign: "center" }}>{confirmedResult}</td>
                     </tr>
                     <tr>
-                        <td colspan="4" ><div className='overCell'>{hashPlainText}</div></td>
+                        <td colSpan="4" ><div className='overCell'>{hashPlainText}</div></td>
                     </tr>
                     <tr>
-                        <td colspan="3"><b>Decrypted digital signature</b></td>
-                        <td style={{ textAlign: "center"}}>{confirmedResult}</td>
-                        
+                        <td colSpan="3"><b>decrypted digital signature</b></td>
+                        <td style={{ textAlign: "center" }}>{confirmedResult}</td>
                     </tr>
                     <tr>
-                        <td colspan="4" ><div className='overCell'>{vDigitalSignature}</div></td>
+                        <td colSpan="4" ><div className='overCell'>{vDigitalSignature}</div></td>
                     </tr>
                 </tbody>
             </table>

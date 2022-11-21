@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import background from "./img/wallpaper2.png";
+import sendButton from "./img/sendBtn.png";
 const ChatRoom = ({
     socket,
     name,
@@ -31,6 +31,24 @@ const ChatRoom = ({
         chatBottomRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }, [messageReceived]);
 
+    const userColor = (name) => {
+        let uppername = name.toUpperCase();
+        console.log(uppername);
+        if (name.startsWith("A")) {
+            return "#e64980";
+        } else if (uppername.startsWith("B")) {
+            return "#be4bdb";
+        } else if (uppername.startsWith("C")) {
+            return "#4c6ef5";
+        } else if (uppername.startsWith("D")) {
+            return "#0ca678";
+        } else if (uppername.startsWith("E")) {
+            return "#fab005";
+        } else {
+            return "#fa5252";
+        }
+    }
+
     const joinRoom = (selected) => {
         console.log(selected);
         if (room !== "") {
@@ -50,7 +68,7 @@ const ChatRoom = ({
                 </div>
                 <div id="selectRoom">
                     <select
-                    style={{height: "25px"}}
+                        style={{ height: "25px" }}
                         onChange={(event) => {
                             setRoom(event.target.value);
                             { joinRoom(event.target.value) };
@@ -62,31 +80,37 @@ const ChatRoom = ({
                     </select>
                 </div>
             </div>
-            <div id="chatbox" style={{ backgroundImage: `url(${background})` }}>
+            <div id="chatbox">
                 {messageReceived?.map((data, i) => {
                     if (data.name != name) {
-                        return <div key={i} className="received_message"><b style={{ color: "red" }}>{data.name}</b><br />{data.message}</div>
+                        return <div key={i} className="received_message"><b style={{ color: userColor(data.name) }}>{data.name}</b><br />{data.message}</div>
                     } else {
-                        return <div key={i} className="my_message"><b style={{ color: "black" }}>{data.name}</b><br />{data.message}</div>;
+                        return <div key={i} className="my_message"><b style={{ color: "#3bc9db" }}>{data.name}</b><br />{data.message}</div>;
                     }
                 })}
                 <div ref={chatBottomRef} />
             </div>
-            <table id="noteTable">
+            <div id="sendMsg">
+                <div>
+                    <input
+                        id="inputMessage1"
+                        placeholder='Message...'
+                        onChange={(event) => {
+                            setMessage(event.target.value);
+                        }}
+                    />
+                </div>
+                <div>
+                    <button id="sendBtn" onClick={sendMessage}><img src={sendButton} style={{ height: "20px",width:"20px" }} /></button>
+                </div>
+            </div>
+            <table id="chatTable">
                 <tbody>
                     <tr>
                         <td>
-                            <input
-                                id="inputMessage1"
-                                placeholder='Message...'
-                                onChange={(event) => {
-                                    setMessage(event.target.value);
-                                }}
-                                style={{ width: "100%" }}
-                            />
+
                         </td>
                         <td>
-                            <button onClick={sendMessage}>Send Message</button>
                         </td>
                     </tr>
                 </tbody>
