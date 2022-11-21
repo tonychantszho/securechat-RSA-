@@ -99,7 +99,7 @@ body {
 
 #chatbox {
   overflow-y: auto;
-  height: 320px;
+  height: 350px;
 }
 
 .cert {
@@ -107,6 +107,7 @@ body {
   padding: 3px;
   text-align: left;
   word-break: normal;
+  border: solid 1px #636490;
   overflow-wrap: break-word;
   overflow: hidden;
   overflow-y: auto;

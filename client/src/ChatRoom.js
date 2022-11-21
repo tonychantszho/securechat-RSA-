@@ -101,10 +101,13 @@ const ChatRoom = ({
                     />
                 </div>
                 <div>
-                    <button id="sendBtn" onClick={sendMessage}><img src={sendButton} style={{ height: "20px",width:"20px" }} /></button>
+                    <button id="sendBtn" onClick={sendMessage}><img src={sendButton} style={{ height: "20px", width: "20px" }} /></button>
                 </div>
             </div>
-            <div><b>Encrypt message for sending</b><button onClick={() => { setEncryptFunc("Sign"); }}>Sign</button><button onClick={() => { setEncryptFunc("encrypt"); }}>encrypt</button>
+            <div>
+                <b>Encrypt message for sending</b>
+                <button style={{marginLeft:'10px'}} onClick={() => { setEncryptFunc("Sign"); }}>Sign</button>
+                <button style={{marginLeft:'10px'}} onClick={() => { setEncryptFunc("encrypt"); }}>encrypt</button>
             </div>
             <div className="cert">{embeddedMessage}</div>
             <button onClick={() => { setEncryptFunc("encrypt"); }}>encrypt</button>
