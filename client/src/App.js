@@ -140,6 +140,7 @@ function App() {
       <div className="certInfo">
         <h1>Enter your name</h1>
         <input type="text" onChange={(e) => setName(e.target.value)} />
+        <br></br>
         <button onClick={checkName}>Start</button>
       </div>
     );
