@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-const SelfInformation = ({
+const KeyGenerate = ({
     genPrimeNumber,
     setSessionKey,
     primeNumberP,
@@ -72,4 +72,4 @@ const SelfInformation = ({
     );
 }
 
-export default SelfInformation;
+export default KeyGenerate;

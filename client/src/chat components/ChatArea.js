@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
-import sendButton from "./img/sendBtn.png";
-const ChatRoom = ({
+import sendButton from "../img/sendBtn.png";
+const ChatArea = ({
     socket,
     name,
     room,
@@ -11,7 +11,7 @@ const ChatRoom = ({
     embeddedMessage,
     setEmbeddedMessage
 }) => {
-    const [messageReceived, setMessageReceived] = useState([{ 
+    const [messageReceived, setMessageReceived] = useState([{
         name: "System",
         message: "Hello!please join one chat room first!"
     }]);
@@ -137,4 +137,4 @@ const ChatRoom = ({
     );
 }
 
-export default ChatRoom;
+export default ChatArea;
