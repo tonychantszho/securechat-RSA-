@@ -11,7 +11,10 @@ const ChatRoom = ({
     embeddedMessage,
     setEmbeddedMessage
 }) => {
-    const [messageReceived, setMessageReceived] = useState([{ name: "system", message: "hello" }]);
+    const [messageReceived, setMessageReceived] = useState([{ 
+        name: "System",
+        message: "Hello!please join one chat room first!"
+    }]);
     const chatBottomRef = useRef();
     let init = false;
 

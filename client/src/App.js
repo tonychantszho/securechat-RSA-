@@ -18,7 +18,7 @@ const socket = io(URL, { autoConnect: false });
 function App() {
   const [name, setName] = useState("");
   const [checkfName, setCheckfName] = useState(false);
-  const [room, setRoom] = useState("1");
+  const [room, setRoom] = useState("No connection");
   const [primeNumberP, setPrimeNumberP] = useState(0);
   const [primeNumberQ, setPrimeNumberQ] = useState(0);
   const [bigN, setBigN] = useState(0);
@@ -31,7 +31,6 @@ function App() {
   const [message, setMessage] = useState("");
   const [encryptFunc, setEncryptFunc] = useState("");
   const [embeddedMessage, setEmbeddedMessage] = useState("");
-
 
   const startConnect = () => {
     socket.connect();

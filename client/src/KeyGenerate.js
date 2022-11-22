@@ -13,7 +13,7 @@ const SelfInformation = ({
     embeddedMessage
 }) => {
     useEffect(() => {
-        if (embeddedMessage == "") {
+        if (embeddedMessage == "" && faiN != 0) {
             genSessionKey();
         }
     }, [embeddedMessage]);
