@@ -50,6 +50,7 @@ const CertAuthority = (props) => {
     <div className="certInfo">
       <h1>Certificate Authority</h1>
       <button onClick={props.genPrimeNumber}>Generate</button>
+      
       <table>
         <tbody>
           <tr>
@@ -78,13 +79,13 @@ const CertAuthority = (props) => {
         <tbody>
           <tr>
             <td><b>public key</b></td>
-            <td>&#123;{props.relativeE},{props.bigN}&#125; </td>
+            <td>&#123;{props.relativeE}, {props.bigN}&#125; </td>
           </tr>
         </tbody>
         <tbody>
           <tr>
             <td><b>private key</b></td>
-            <td>&#123;{props.privateD},{props.bigN}&#125;</td>
+            <td>&#123;{props.privateD}, {props.bigN}&#125;</td>
           </tr>
         </tbody>
       </table>
