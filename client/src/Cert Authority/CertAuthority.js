@@ -5,36 +5,34 @@ const socket = io(URL, { autoConnect: false });
 
 const CertAuthority = (props) => {
   socket.connect();
-  socket.emit("join_room", "CA");
+  socket.emit("join_room", "CA");       // join CA room
   let init = false;
   useEffect(() => {
     if (!init) {
-      socket.on("cert_generate", (data, socketId) => {
+      socket.on("cert_generate", (data, socketId) => {   // receive request from client to generate certificate
         console.log("d = " + props.privateD + " n = " + props.bigN);
-        let encryptedCert = props.encrypt(data, props.privateD, props.bigN);
+        let encryptedCert = props.encrypt(data, props.privateD, props.bigN);  // encrypt certificate using private key
         console.log("id = " + socketId);
-        socket.emit("enc_cert", { encryptedCert, socketId });
+        socket.emit("enc_cert", { encryptedCert, socketId }); // send certificate to client
       });
 
-      socket.on("cert_varify", (data, socketId) => {
+      socket.on("cert_varify", (data, socketId) => {    // receive request from client to varify certificate
         console.log("e = " + props.relativeE + " n = " + props.bigN);
-        let decryptedCert = props.decrypt(data, props.relativeE, props.bigN);
+        let decryptedCert = props.decrypt(data, props.relativeE, props.bigN); // decrypt certificate using public key
         let cert = decryptedCert.split(":");
-        if (cert.length <= 1) {
+        if (cert.length <= 1) {     // if certificate is not valid
 
           console.log(cert);
           cert = ["failed", ""];
         } else {
           let tempCert = cert[1].split(",");
-          console.log("tempCert = " + tempCert);
           console.log(cert);
           if (isNaN(tempCert[0]) || isNaN(tempCert[1])) {
             cert = ["failed", ""];
           }
-          console.log("nan1 = " + !isNaN(tempCert[0]) + " nan2 = " + !isNaN(tempCert[1]));
         }
         console.log(cert);
-        socket.emit("varify_result", { cert, socketId });
+        socket.emit("varify_result", { cert, socketId });     // send result to client
       });
       init = true;
     }
@@ -50,7 +48,6 @@ const CertAuthority = (props) => {
     <div className="certInfo">
       <h1>Certificate Authority</h1>
       <button onClick={props.genPrimeNumber}>Generate</button>
-      
       <table>
         <tbody>
           <tr>

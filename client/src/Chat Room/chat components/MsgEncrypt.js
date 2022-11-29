@@ -13,17 +13,17 @@ const MsgEncrypt = ({
     vefifyResult,
     setEmbeddedMessage
 }) => {
-    const [hashValue, setHashValue] = useState("");
-    const [digitalSignature, setDigitalSignature] = useState("");
-    const [cipherText, setCipherText] = useState("");
+    const [hashValue, setHashValue] = useState("");     // store hash value of message
+    const [digitalSignature, setDigitalSignature] = useState("");   // store digital signature of message
+    const [cipherText, setCipherText] = useState("");   // store cipher text of message
 
-    useEffect(() => {
+    useEffect(() => {                               // when user press sign or encrypt button, excute corresponding function
         if (encryptFunc != "") {
             console.log(encryptFunc);
-            if (encryptFunc == "Sign") {
+            if (encryptFunc == "Sign") {            // if sing button is clicked,sign message
                 console.log("Sign");
                 hashAndSign();
-            } else if (encryptFunc == "encrypt") {
+            } else if (encryptFunc == "encrypt") {  // if encrypt button is clicked, encrypt message
                 console.log("encrypt");
                 encryptMessage();
             }
@@ -31,20 +31,20 @@ const MsgEncrypt = ({
         setEncryptFunc("");
     }, [encryptFunc]);
 
-    const hashAndSign = () => {
-        let hash = sha256.hmac(sessionKey, message);
+    const hashAndSign = () => {                         // hash and sign message
+        let hash = sha256.hmac(sessionKey, message);    // hash message with session key
         setHashValue(hash);
         console.log("privateD = " + privateD);
         console.log("bigN = " + bigN);
-        let sign = encrypt(hash, privateD, bigN);
+        let sign = encrypt(hash, privateD, bigN);       // sign hash value with user private key
         setDigitalSignature(sign);
     }
 
-    const encryptMessage = () => {
+    const encryptMessage = () => {                    // encrypt message
         let block = 0;
         let splitBlock = [];
         let result = "";
-        if (message.length >= 24) {
+        if (message.length >= 24) {                  // if message length is larger than 24, split message into 24 length block
             console.log("split")
             splitBlock = message.match(/.{1,24}/g) || [];
             console.log(splitBlock);
@@ -53,7 +53,7 @@ const MsgEncrypt = ({
             splitBlock[0] = message;
             block = 1;
         }
-        for (let i = 0; i < block; i++) {
+        for (let i = 0; i < block; i++) {           // add padding to each block
             let temp2 = "02";
             let temp = 32 - 4 - splitBlock[i].length;
             for (let i = 0; i < temp; i++) {
@@ -65,17 +65,17 @@ const MsgEncrypt = ({
             console.log(temp2.length);
         }
         console.log(result);
-        let publicKey = vefifyResult[1].split(",");
+        let publicKey = vefifyResult[1].split(","); // get target user public key from certificate
         console.log(publicKey);
-        let addKey = result + "#%#" + sessionKey;
+        let addKey = result + "#%#" + sessionKey;   // combine session key to message
         console.log(addKey);
-        let cipherText = encrypt(addKey, publicKey[0], publicKey[1]);
+        let cipherText = encrypt(addKey, publicKey[0], publicKey[1]);   // encrypt message with target user public key
         setCipherText(cipherText);
         let temp = cipherText.join("");
         let temp2 = digitalSignature.join("");
         let temp3 = certificate.join("");
         console.log("cert = " + temp3, "state = " + certificate);
-        let embedded = temp + "," + temp2 + "," + temp3;
+        let embedded = temp + "," + temp2 + "," + temp3;    // combine cipher text, digital signature and certificate for sending
         setEmbeddedMessage(embedded);
     }
     return (

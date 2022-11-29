@@ -13,14 +13,14 @@ const KeyGenerate = ({
     embeddedMessage
 }) => {
     useEffect(() => {
-        if (embeddedMessage == "" && faiN != 0) {
+        if (embeddedMessage == "" && faiN != 0) {   //regenerate session key when embeddedMessage was sent
             genSessionKey();
         }
     }, [embeddedMessage]);
 
-    const genSessionKey = () => {
+    const genSessionKey = () => {                   //generate session key
         let sessionKey = "";
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < 6; i++) {               //generate 6 random number as session key
             let temp = Math.floor(Math.random() * 10);
             sessionKey = sessionKey + temp;
         }

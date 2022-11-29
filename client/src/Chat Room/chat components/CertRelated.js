@@ -1,14 +1,22 @@
 import { useEffect, useState } from 'react';
 
-const ChatRoom = ({ name, relativeE, bigN, vefifyResult, socket, setVefifyResult, setCertificate }) => {
-    const [vCertificate, setVCertificate] = useState("");
+const ChatRoom = ({
+    name,
+    relativeE,
+    bigN,
+    vefifyResult,
+    socket,
+    setVefifyResult,
+    setCertificate
+}) => {
+    const [vCertificate, setVCertificate] = useState("");      // store input certificate by user
     let init = false;
     useEffect(() => {
         if (!init) {
-            socket.on("receive_cert", (data) => {
+            socket.on("receive_cert", (data) => {              // receive certificate from CA
                 setCertificate(data);
             });
-            socket.on("varify_cert", (data) => {
+            socket.on("varify_cert", (data) => {               // receive varified result from CA
                 setVefifyResult(data);
             });
 
@@ -21,14 +29,14 @@ const ChatRoom = ({ name, relativeE, bigN, vefifyResult, socket, setVefifyResult
 
     }, [bigN, relativeE, vefifyResult]);
 
-    const generateCertificate = () => {
+    const generateCertificate = () => {                             // send request to CA to generate certificate
         let username = name;
-        const messages = username + ":" + relativeE + "," + bigN;
-        socket.emit("generate", messages);
+        const request = username + ":" + relativeE + "," + bigN;    // embed username, relativeE and bigN into request for CA encrypt
+        socket.emit("generate", request);                           // send request to CA
     }
 
-    const varifyCertificate = () => {
-        socket.emit("varify", vCertificate);
+    const varifyCertificate = () => {                               // send certificate to CA to varify
+        socket.emit("varify", vCertificate);                        // send certificate to CA
     }
 
     return (

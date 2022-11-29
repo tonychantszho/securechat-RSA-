@@ -11,8 +11,8 @@ const ChatArea = ({
     embeddedMessage,
     setEmbeddedMessage
 }) => {
-    const [messageReceived, setMessageReceived] = useState([{
-        name: "System",
+    const [messageReceived, setMessageReceived] = useState([{    //store the message received from all users(including the sender)
+        name: "System",                                          //initialize message
         message: "Hello!please join one chat room first!"
     }]);
     const chatBottomRef = useRef();
@@ -20,11 +20,11 @@ const ChatArea = ({
 
     useEffect(() => {
         if (!init) {
-            socket.on("message_record", (data) => {
+            socket.on("message_record", (data) => {              //receive message record from server when user join a room
                 console.log(data);
                 setMessageReceived(data);
             });
-            socket.on("receive_message", (data) => {
+            socket.on("receive_message", (data) => {             //receive message from server when any user send a message
                 setMessageReceived(data);
             });
             init = true;
@@ -35,7 +35,7 @@ const ChatArea = ({
         chatBottomRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }, [messageReceived]);
 
-    const userColor = (name) => {
+    const userColor = (name) => {                            //set different color for different user
         let uppername = name.toUpperCase();
         if (name.startsWith("A")) {
             return "#e64980";
@@ -52,26 +52,25 @@ const ChatArea = ({
         }
     }
 
-    const joinRoom = (selected) => {
-        console.log(selected);
+    const joinRoom = (selected) => {                     //join a room
         if (room !== "") {
-            socket.emit("join_room", selected);
+            socket.emit("join_room", selected);         //send room number to server
         }
     };
 
-    const sendMessage = () => {
+    const sendMessage = () => {                                     //send message
         if (message != "") {
-            document.getElementById("inputMessage1").value = "";
-            socket.emit("send_message", { message, room: room, name: name });
-            setMessage("");
+            document.getElementById("inputMessage1").value = "";    //clear input box
+            socket.emit("send_message", { message, room: room, name: name });   //send message,target room and user name to server
+            setMessage("");                                         //clear message state
         }
     };
 
-    const sendMessage2 = () => {
+    const sendMessage2 = () => {                                    //send embedded message
         if (embeddedMessage != "") {
-            document.getElementById("inputMessage1").value = "";
-            socket.emit("send_message", { message: embeddedMessage, room: room, name: name });
-            setEmbeddedMessage("");
+            document.getElementById("inputMessage1").value = "";    //clear input box
+            socket.emit("send_message", { message: embeddedMessage, room: room, name: name });  //send embedded message,target room and user name to server
+            setEmbeddedMessage("");                                 //clear embedded message state
         }
     };
     return (

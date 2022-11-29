@@ -1,18 +1,31 @@
-import { useEffect, useState } from 'react';
-import ChatArea from '../chat components/ChatArea';
-import KeyGenerate from '../chat components/KeyGenerate';
-import MsgEncrypt from '../chat components/MsgEncrypt';
-import CertRelated from '../chat components/CertRelated';
-import MsgDecrypt from '../chat components/MsgDecrypt';
+import { useState } from 'react';
+import ChatArea from './chat components/ChatArea';
+import KeyGenerate from './chat components/KeyGenerate';
+import MsgEncrypt from './chat components/MsgEncrypt';
+import CertRelated from './chat components/CertRelated';
+import MsgDecrypt from './chat components/MsgDecrypt';
 
-function ChatRoom({ name, genPrimeNumber, primeNumberP, primeNumberQ, faiN, bigN, relativeE, privateD, encrypt, decrypt, socket, sha256 }) {
-  const [room, setRoom] = useState("No connection");
-  const [sessionKey, setSessionKey] = useState(0);
-  const [certificate, setCertificate] = useState("");
-  const [vefifyResult, setVefifyResult] = useState(["", ""]);
-  const [message, setMessage] = useState("");
-  const [encryptFunc, setEncryptFunc] = useState("");
-  const [embeddedMessage, setEmbeddedMessage] = useState("");
+function ChatRoom({
+  name,
+  genPrimeNumber,
+  primeNumberP,
+  primeNumberQ,
+  faiN,
+  bigN,
+  relativeE,
+  privateD,
+  encrypt,
+  decrypt,
+  socket,
+  sha256
+}) {
+  const [room, setRoom] = useState("No connection");          //room name
+  const [sessionKey, setSessionKey] = useState(0);            //session key as hash salt
+  const [certificate, setCertificate] = useState("");         //certificate afte signing by CA
+  const [vefifyResult, setVefifyResult] = useState(["", ""]); //reslut of verify certificate
+  const [message, setMessage] = useState("");                 //message want to send
+  const [encryptFunc, setEncryptFunc] = useState("");         //encrypt function, sign || encrypt message
+  const [embeddedMessage, setEmbeddedMessage] = useState(""); //message for sending
 
   return (
     <div className="App">

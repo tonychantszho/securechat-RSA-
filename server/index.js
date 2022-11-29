@@ -6,9 +6,10 @@ const cors = require('cors');
 app.use(cors());
 
 const server = http.createServer(app);
-let messageRecord1 = [];
-let messageRecord2 = [];
-let messageRecord3 = [];
+let usersName = [];                 //array to store all users name
+let messageRecord1 = [];        //message record for chat room 1
+let messageRecord2 = [];        //message record for chat room 2
+let messageRecord3 = [];        //message record for chat room 3
 const io = new Server(server, {
     cors: {
         origin: "http://localhost:3000",
@@ -18,6 +19,17 @@ const io = new Server(server, {
 
 io.on("connection", (socket) => {
     console.log(`user connected: ${socket.id}`);
+
+    socket.on("checkUserName", (data) => {
+        for(let i = 0; i < usersName.length; i++){
+            if(data == usersName[i]){
+                socket.emit("verify_name", false);
+                return;
+            }
+        }
+        usersName.push(data);
+        socket.emit("verify_name", true);
+    });
 
     socket.on("join_room", (data) => {
         socket.join(data);
