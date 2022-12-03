@@ -52,7 +52,7 @@ const ChatRoom = ({
             receivedComponet = ["321", "432433", "3243"];
         }
         let padPlainText = decrypt(receivedComponet[0], privateD, bigN);    // decrypt ciphertext using private key
-        const regex = /02\d+00/g;                                           // remove padding from decrypted plaintext
+        const regex = /0002\d+00/g;                                         // remove padding from decrypted plaintext
         const plainTextWithKey = padPlainText.replace(regex, "");
         let plainText = plainTextWithKey.split("#%#");                      //split plaintext and session key
         console.log(plainText);

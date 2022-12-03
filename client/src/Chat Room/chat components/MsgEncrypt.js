@@ -34,8 +34,8 @@ const MsgEncrypt = ({
     const hashAndSign = () => {                         // hash and sign message
         let hash = sha256.hmac(sessionKey, message);    // hash message with session key
         setHashValue(hash);
-        console.log("privateD = " + privateD);
-        console.log("bigN = " + bigN);
+        // console.log("privateD = " + privateD);
+        // console.log("bigN = " + bigN);
         let sign = encrypt(hash, privateD, bigN);       // sign hash value with user private key
         setDigitalSignature(sign);
     }
@@ -44,9 +44,9 @@ const MsgEncrypt = ({
         let block = 0;
         let splitBlock = [];
         let result = "";
-        if (message.length >= 24) {                  // if message length is larger than 24, split message into 24 length block
+        if (message.length >= 22) {                  // if message length is larger than 24, split message into 24 length block
             console.log("split")
-            splitBlock = message.match(/.{1,24}/g) || [];
+            splitBlock = message.match(/.{1,22}/g) || [];
             console.log(splitBlock);
             block = splitBlock.length;
         } else {
@@ -54,8 +54,8 @@ const MsgEncrypt = ({
             block = 1;
         }
         for (let i = 0; i < block; i++) {           // add padding to each block
-            let temp2 = "02";
-            let temp = 32 - 4 - splitBlock[i].length;
+            let temp2 = "0002";
+            let temp = 32 - 6 - splitBlock[i].length;
             for (let i = 0; i < temp; i++) {
                 temp2 = temp2 + "" + (Math.floor(Math.random() * 8) + 1);
             }
@@ -80,7 +80,7 @@ const MsgEncrypt = ({
     }
     return (
         <div>
-            <div className='ComponentTitle'>Message Enryption</div>
+            <div className='ComponentTitle'>Message Encryption</div>
             <table className='dataTable2'>
                 <tbody>
                     <tr>
